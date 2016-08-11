@@ -12,7 +12,11 @@
     <title>Title</title>
 </head>
 <body>
-Home page blblfblfbldfbdfbfgbfg
+<h2>Hello, aici inserati titlu</h2>
+
+<form>
+
+</form>
 
 </body>
 </html>

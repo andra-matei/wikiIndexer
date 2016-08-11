@@ -19,4 +19,8 @@ public class ArticleRepository {
         entityManager.persist(article);
     }
 
+    public void updateArticle(Article article){
+        entityManager.merge(article);
+    }
+
 }

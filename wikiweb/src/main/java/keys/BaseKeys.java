@@ -6,5 +6,6 @@ package keys;
 public interface BaseKeys {
 
     String HELLO = "Hello Wrold!!!";
+    String URL_WIKI = "https://en.wikipedia.org/wiki/Special:Export?pages=";
 
 }

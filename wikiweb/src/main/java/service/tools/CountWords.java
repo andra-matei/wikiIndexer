@@ -1,5 +1,15 @@
 package service.tools;
 
+import keys.BaseKeys;
+import model.Article;
+import model.Word;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import service.ArticleService;
+import service.WordService;
+import service.impl.ArticleServiceImpl;
+import service.impl.WordServiceImpl;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
@@ -7,9 +17,26 @@ import java.util.*;
 /**
  * Created by andmatei on 8/11/2016.
  */
+@Component
 public class CountWords {
-    protected static void countWords() {
+
+    @Autowired
+    private WriteFileFromXML writeFileFromXML;
+
+    @Autowired
+    private ArticleService articleService;
+
+    @Autowired
+    private WordService wordService;
+
+    protected void countWords() {
         Map<String, Integer> wordCount = new LinkedHashMap<>();
+
+        Article article = new Article();
+        article.setTitle(writeFileFromXML.getTitleForUrl());
+        article.setUrl(BaseKeys.URL_WIKI + article.getTitle());
+        articleService.saveArticle(article);
+
         try {
             BufferedReader in = new BufferedReader(new FileReader("fisierXML.txt"));
             String line;
@@ -47,14 +74,23 @@ public class CountWords {
             last_i = i;
 
             for (String s : wordCount.keySet()) {
-                if (wordCount.get(s) == i) // which have this value
+                if (wordCount.get(s) == i) { // which have this value
+                    Word wordEntity = new Word();
+                    wordEntity.setName(s);
+                    wordEntity.setOccurences(i);
+                    wordEntity.setArticle(article);
+                    wordService.saveWord(wordEntity);
+                    article.getWords().add(wordEntity);
+                    articleService.updateArticle(article);
+
                     System.out.println(s + " " + i);
+                }
             }
 
         }
     }
 
-    private static boolean isPreposition(String w) {
+    private boolean isPreposition(String w) {
         for (PrepositionsEnum preposition : PrepositionsEnum.values()) {
             if (w.equals(preposition.toString())) {
                 return true;

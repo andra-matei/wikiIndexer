@@ -1,5 +1,8 @@
 package service.tools;
 
+import keys.BaseKeys;
+import org.springframework.stereotype.Component;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -8,11 +11,19 @@ import java.net.URLConnection;
 /**
  * Created by andmatei on 8/11/2016.
  */
+@Component
 public class WriteFileFromXML {
-    public static void writeFileFromXML() {
+
+    private String titleForUrl = "Java";
+
+    public String getTitleForUrl() {
+        return titleForUrl;
+    }
+
+    public  void writeFileFromXML() {
         URL url = null; //Reading
         try {
-            url = new URL("https://en.wikipedia.org/wiki/Special:Export?pages=Java");
+            url = new URL(BaseKeys.URL_WIKI + titleForUrl);
             URLConnection urlConnection = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             BufferedWriter out = new BufferedWriter(new FileWriter("fisierXML.txt"));
