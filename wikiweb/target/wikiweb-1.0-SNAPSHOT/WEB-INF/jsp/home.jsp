@@ -12,7 +12,12 @@
     <title>Title</title>
 </head>
 <body>
-Home page blblfblfbldfbdfbfgbfg
+<h2>Hello, aici inserati titlu</h2>
+
+<form action="/" method="post">
+    <input type="text" name="title">
+    <input type="submit" value="apasa aici">
+</form>
 
 </body>
 </html>

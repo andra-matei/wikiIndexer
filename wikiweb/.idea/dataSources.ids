@@ -19,7 +19,7 @@
         <data-type>varchar(45)</data-type>
       </column>
       <column id="6" parent="2" name="URL">
-        <data-type>varchar(45)</data-type>
+        <data-type>varchar(145)</data-type>
       </column>
       <index id="7" parent="2" name="Title_UNIQUE">
         <columns>title</columns>

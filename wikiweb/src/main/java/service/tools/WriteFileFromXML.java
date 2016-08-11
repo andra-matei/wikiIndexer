@@ -14,13 +14,14 @@ import java.net.URLConnection;
 @Component
 public class WriteFileFromXML {
 
-    private String titleForUrl = "Java";
+    private String titleForUrl;
 
     public String getTitleForUrl() {
         return titleForUrl;
     }
 
-    public  void writeFileFromXML() {
+    public  void writeFileFromXML(String titleForUrl) {
+        this.titleForUrl = titleForUrl;
         URL url = null; //Reading
         try {
             url = new URL(BaseKeys.URL_WIKI + titleForUrl);

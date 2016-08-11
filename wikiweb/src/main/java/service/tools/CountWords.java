@@ -29,7 +29,7 @@ public class CountWords {
     @Autowired
     private WordService wordService;
 
-    protected void countWords() {
+    public void countWords() {
         Map<String, Integer> wordCount = new LinkedHashMap<>();
 
         Article article = new Article();
@@ -80,6 +80,7 @@ public class CountWords {
                     wordEntity.setOccurences(i);
                     wordEntity.setArticle(article);
                     wordService.saveWord(wordEntity);
+
                     article.getWords().add(wordEntity);
                     articleService.updateArticle(article);
 

@@ -5,6 +5,7 @@ package model;
  */
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Article {
     private String url;
 
     @OneToMany(mappedBy = "article")
-    private List<Word> words;
+    private List<Word> words = new ArrayList<Word>();
 
     public int getId() {
         return id;
