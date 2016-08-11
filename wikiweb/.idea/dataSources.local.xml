@@ -4,7 +4,8 @@
     <data-source name="MySQL - @localhost" uuid="94fb72eb-15fb-4519-8533-b5784f9ea7f0">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <resolve-scope>wikiweb:*|jpa:</resolve-scope>
+      <schema-pattern>wikiweb.*</schema-pattern>
+      <default-schemas>jpa.*</default-schemas>
     </data-source>
   </component>
 </project>

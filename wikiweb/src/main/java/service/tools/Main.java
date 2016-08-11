@@ -1,6 +1,6 @@
-package model;
+package service.tools;
 
-public class Test {
+public class Main {
     public static void main(String[] args) {
         WriteFileFromXML.writeFileFromXML();
         CountWords.countWords();

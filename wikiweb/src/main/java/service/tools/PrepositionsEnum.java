@@ -1,4 +1,4 @@
-package model;
+package service.tools;
 
 /**
  * Created by andmatei on 8/11/2016.
