@@ -1,0 +1,17 @@
+class
+student
+andrademo
+firstname
+lastname
+nickname
+marks
+student
+firstname
+lastname
+nickname
+marks
+student
+firstname
+lastname
+nickname
+marks
